@@ -49,6 +49,18 @@ class DefaultController extends Controller
      */
     const EVENT_AFTER_DELETE = 'afterDelete';
 
+    public $accessControlConfig = [
+        'class' => AccessControl::class,
+        'only' => ['quick-edit', 'delete'],
+        'rules' => [
+            [
+                'allow' => true,
+                'roles' => ['admin'],
+            ],
+        ],
+    ];
+
+
     /**
      * @inheritdoc
      */
@@ -68,16 +80,7 @@ class DefaultController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['quick-edit', 'delete'],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['admin'],
-                    ],
-                ],
-            ],
+            'access' => $this->accessControlConfig,
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
