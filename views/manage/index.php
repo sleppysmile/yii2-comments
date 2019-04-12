@@ -27,13 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'max-width: 50px;'],
             ],
             [
+                'attribute' => 'view_url',
+                'contentOptions' => ['style' => 'max-width: 50px;'],
+            ],
+            [
                 'attribute' => 'content',
                 'contentOptions' => ['style' => 'max-width: 350px;'],
                 'value' => function ($model) {
                     return StringHelper::truncate($model->content, 100);
                 },
             ],
-            'attribute' => 'relatedTo',
             [
                 'attribute' => 'createdBy',
                 'value' => function ($model) {
