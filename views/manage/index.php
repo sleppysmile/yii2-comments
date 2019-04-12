@@ -29,9 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'content',
                 'contentOptions' => ['style' => 'max-width: 350px;'],
-                'format' => 'url',
-                'value' => function ($model) {
-                    return Html::a(StringHelper::truncate($model->content, 100), $model->view_url);
+                'format' => 'raw',
+                'value' => function($model){
+                    return Html::a($model->content, $model->view_url);
                 },
             ],
             [
