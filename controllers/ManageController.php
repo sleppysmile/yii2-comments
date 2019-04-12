@@ -109,7 +109,7 @@ class ManageController extends Controller
         }
 
         foreach (Status::listData() as $item) {
-            $dropArr = array_merge($dropArr, Yii::t('yii2mod.comments', $item));
+            $dropArr = array_merge($dropArr, [Yii::t('yii2mod.comments', $item)]);
         }
 
 
