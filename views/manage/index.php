@@ -51,6 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return Yii::t('yii2mod.comments', Status::getLabel($model->status));
                 },
+                'filter' => false,
             ],
             [
                 'attribute' => 'createdAt',
