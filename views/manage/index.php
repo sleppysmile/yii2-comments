@@ -51,7 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return Yii::t('yii2mod.comments', Status::getLabel($model->status));
                 },
-                'filter' => Yii::t('yii2mod.comments', Status::listData()),
+                'filter' => function (Status::listData()) {
+                    foreach (Status::listData() as $list) {
+                        return Yii::t('yii2mod.comments', Status::getLabel($list));
+                    }
+                },
                 'filterInputOptions' => ['prompt' => Yii::t('yii2mod.comments', 'Select Status'), 'class' => 'form-control'],
             ],
             [
