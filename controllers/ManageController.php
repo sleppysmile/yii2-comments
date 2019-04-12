@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii2mod\comments\models\CommentModel;
 use yii2mod\comments\traits\ModuleTrait;
+use yii2mod\moderation\enums\Status;
 
 /**
  * Class ManageController
