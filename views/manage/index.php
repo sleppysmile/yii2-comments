@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\StringHelper;
 use yii\widgets\Pjax;
 use yii2mod\moderation\enums\Status;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -31,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'max-width: 350px;'],
                 'format' => 'raw',
                 'value' => function($model){
-                    return Html::a($model->content, $model->view_url);
+                    return Html::a($model->content, Url::to([$model->view_url]));
                 },
             ],
             [
