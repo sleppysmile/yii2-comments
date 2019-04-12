@@ -48,7 +48,7 @@ return [
     'Select Status' => 'Выберите Статус',
     'Select Author' => 'Выберите Автора',
     'Update Comment: {0}' => 'Обновить комментарий: {0}',
-    'StatusCol' => '=Pending{в ожидании} =Postponed{Отложено} =Approved{Одобренный} =Rejected{Отклонено}',
+    'StatusCol' => '{=Pending{в ожидании} =Postponed{Отложено} =Approved{Одобренный} =Rejected{Отклонено}}',
     'Active' => 'Включён',
     'Deleted' => 'Удален',
     'Go Back' => 'Вернуться',
