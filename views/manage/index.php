@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'createdBy',
                 'value' => function ($model) {
-                    return $model->getAuthorName();
+                    return $model->author->userProfile->fullName ?: $model->name;
                 },
                 'filter' => $commentModel::getAuthors(),
                 'filterInputOptions' => ['prompt' => Yii::t('yii2mod.comments', 'Select Author'), 'class' => 'form-control'],
