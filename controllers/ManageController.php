@@ -83,6 +83,7 @@ class ManageController extends Controller
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
             'commentModel' => $commentModel,
+            'list' => Status::listData(),
         ]);
     }
 
