@@ -28,10 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'view_url',
-                'format' => 'url',
                 'contentOptions' => ['style' => 'max-width: 50px;'],
                 'value' => function ($model) {
-                    return StringHelper::truncate($model->content, 25);
+                    return "<a href='view_url'>" . StringHelper::truncate($model->view_url, 25) . "</a>";
                 }
             ],
             [
