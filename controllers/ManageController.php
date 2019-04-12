@@ -100,6 +100,7 @@ class ManageController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $dropArr = [];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('yii2mod.comments', 'Comment has been saved.'));
@@ -107,8 +108,14 @@ class ManageController extends Controller
             return $this->redirect(['index']);
         }
 
+        foreach (Status::listData() as $item) {
+            $dropArr = array_merge($dropArr, Yii::t('yii2mod.comments', $item));
+        }
+
+
         return $this->render($this->updateView, [
             'model' => $model,
+            'dropArr' => $dropArr,
         ]);
     }
 

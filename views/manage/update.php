@@ -7,6 +7,7 @@ use yii2mod\moderation\enums\Status;
 
 /* @var $this yii\web\View */
 /* @var $model \yii2mod\comments\models\CommentModel */
+/* @var $model \yii2mod\comments\controllers\ManageController - $dropArr */
 /* @var $form yii\widgets\ActiveForm */
 
 $this->title = Yii::t('yii2mod.comments', 'Update Comment: {0}', $model->id);
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = Yii::t('yii2mod.comments', 'Update');
             'id' => 'content',
         ]);
         ?>
-        <?php echo $form->field($model, 'status')->dropDownList(Status::listData()); ?>
+        <?php echo $form->field($model, 'status')->dropDownList($dropArr); ?>
         <div class="form-group">
             <?php echo Html::submitButton(Yii::t('yii2mod.comments', 'Update'), ['class' => 'btn btn-primary']); ?>
             <?php echo Html::a(Yii::t('yii2mod.comments', 'Go Back'), ['index'], ['class' => 'btn btn-default']); ?>
