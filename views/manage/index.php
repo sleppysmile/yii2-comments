@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'view_url',
+                'format' => 'url',
                 'contentOptions' => ['style' => 'max-width: 50px;'],
             ],
             [
