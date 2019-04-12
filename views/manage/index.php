@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'max-width: 350px;'],
                 'format' => 'raw',
                 'value' => function($model){
-                    return Html::a($model->content, Url::to([$model->view_url]));
+                    return Html::a($model->content, [$model->view_url]);
                 },
             ],
             [
