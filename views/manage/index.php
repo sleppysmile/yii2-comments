@@ -51,8 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return Yii::t('yii2mod.comments', Status::getLabel($model->status));
                 },
-                'filter' => function (Status::listData()) {
-                    foreach (Status::listData() as $list) {
+                'filter' => function ($fil = Status::listData()) {
+                    foreach ($fil as $list) {
                         return Yii::t('yii2mod.comments', $list);
                     }
                 },
