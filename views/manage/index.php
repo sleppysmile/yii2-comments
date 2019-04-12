@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'status',
                 'value' => function ($model) {
-                    return Status::getLabel($model->status);
+                    return Yii::t('yii2mod.comments', 'StatusCol', Status::getLabel($model->status));
                 },
                 'filter' => Status::listData(),
                 'filterInputOptions' => ['prompt' => Yii::t('yii2mod.comments', 'Select Status'), 'class' => 'form-control'],
