@@ -28,7 +28,7 @@
             url: window.location.href
         },
         submitBtnText: 'Comment',
-        submitBtnLoadingText: 'Loading...'
+        submitBtnLoadingText: 'Загрузка...'
     };
 
     var events = {
