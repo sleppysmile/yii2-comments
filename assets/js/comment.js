@@ -215,7 +215,7 @@
         var $this = $(this);
         var $commentForm = $(params.data.formSelector);
         var settings = commentData[params.data.wrapperSelector].settings;
-
+        var pjaxSettings = $.extend({container: settings.pjaxContainerId}, settings.pjaxSettings);
         var event = $.Event(events.beforeDelete);
         $commentForm.trigger(event);
         if (event.result === false) {
@@ -231,6 +231,7 @@
             success: function (result, status, xhr) {
                 $this.parents('[data-comment-content-id="' + $this.data('comment-id') + '"]').find(settings.contentSelector).text(result);
                 $this.parents(settings.toolsSelector).remove();
+                $.pjax(pjaxSettings);
             }
         });
 
