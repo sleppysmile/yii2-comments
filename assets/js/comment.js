@@ -234,9 +234,9 @@
             }
         });
 
-        $commentForm.trigger(events.afterDelete);
+        $commentForm.trigger($.Event(events.afterDelete));
 
-        return true;
+        return false;
     }
 
     /**
