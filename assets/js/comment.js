@@ -140,7 +140,6 @@
 
         $.post($commentForm.attr('action'), formData, function (data) {
             if (data.status === 'success') {
-                alert('kek');
                 $.pjax(pjaxSettings);
 
                 $commentForm.trigger($.Event(events.afterCreate));
@@ -237,7 +236,7 @@
 
         $commentForm.trigger(events.afterDelete);
 
-        return false;
+        return true;
     }
 
     /**
