@@ -44,7 +44,7 @@ class Comment extends Widget
     /**
      * @var string pjax container id
      */
-    public $pjaxContainerId;
+    public $pjaxContainerId = 'commentpjaxcontainer';
 
     /**
      * @var null|int maximum comments level, level starts from 1, null - unlimited level;
