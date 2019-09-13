@@ -69,7 +69,7 @@ class DefaultController extends Controller
         return [
             'quick-edit' => [
                 'class' => EditableAction::class,
-                'modelClass' => CommentModel::class,
+                'modelClass' => $this->getModule()->commentModelClass,
             ],
         ];
     }
