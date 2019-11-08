@@ -142,7 +142,7 @@
         $.post($commentForm.attr('action'), formData, function (data) {
             if (data.status === 'success') {
                 $.pjax(pjaxSettings);
-                console.log(pjaxSettings);
+
                 $commentForm.trigger($.Event(events.afterCreate));
             }
             // errors handling
