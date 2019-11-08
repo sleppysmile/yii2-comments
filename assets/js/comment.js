@@ -25,7 +25,8 @@
         pjaxSettings: {
             timeout: 10000,
             scrollTo: false,
-            url: window.location.href
+            url: window.location.href,
+            push: false,
         },
         submitBtnText: 'Comment',
         submitBtnLoadingText: 'Загрузка...'
