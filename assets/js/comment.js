@@ -126,6 +126,10 @@
     function createComment(params) {
         var $commentForm = $(this);
 
+        $ajaxSetup({
+            push: false
+        });
+
         var event = $.Event(events.beforeCreate);
         $commentForm.trigger(event);
         if (event.result === false) {
