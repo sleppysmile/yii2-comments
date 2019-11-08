@@ -126,10 +126,6 @@
     function createComment(params) {
         var $commentForm = $(this);
 
-        $.ajaxSetup({
-            cache: false
-        });
-
         var event = $.Event(events.beforeCreate);
         $commentForm.trigger(event);
         if (event.result === false) {
@@ -145,7 +141,7 @@
         $.post($commentForm.attr('action'), formData, function (data) {
             if (data.status === 'success') {
                 $.pjax(pjaxSettings);
-
+                console.log(pjaxSettings);
                 $commentForm.trigger($.Event(events.afterCreate));
             }
             // errors handling
