@@ -126,6 +126,10 @@
     function createComment(params) {
         var $commentForm = $(this);
 
+        $.ajaxSetup({
+            cache: false
+        });
+
         var event = $.Event(events.beforeCreate);
         $commentForm.trigger(event);
         if (event.result === false) {
@@ -158,7 +162,6 @@
             alert(error);
             $.pjax(pjaxSettings);
         });
-        window.history.pushState({href: $commentForm.attr('action')}, '', $commentForm.attr('action'));
 
         return false;
     }
