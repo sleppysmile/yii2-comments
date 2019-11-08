@@ -126,7 +126,7 @@
     function createComment(params) {
         var $commentForm = $(this);
 
-        $ajaxSetup({
+        $.ajaxSetup({
             push: false
         });
 
