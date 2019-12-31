@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             [
-                'attribute' => 'createdBy',
+                'attribute' => 'name',
                 'value' => function ($model) {
                 if (!empty(null !== $model->createdBy)) {
                     return $model->author->userProfile->fullName;
