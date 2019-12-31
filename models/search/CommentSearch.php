@@ -23,7 +23,7 @@ class CommentSearch extends CommentModel
     public function rules()
     {
         return [
-            [['id', 'name', 'status'], 'integer'],
+            [['id', 'createdBy', 'status'], 'integer'],
             [['content', 'relatedTo'], 'safe'],
         ];
     }
@@ -58,7 +58,7 @@ class CommentSearch extends CommentModel
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'name' => $this->name,
+            'createdBy' => $this->createdBy,
             'status' => $this->status,
         ]);
 
