@@ -27,7 +27,6 @@ class CommentSearch extends CommentModel
         return [
             [['id', 'createdBy', 'status'], 'integer'],
             [['content', 'relatedTo'], 'safe'],
-            [['authorName'], 'string']
         ];
     }
 
@@ -61,11 +60,11 @@ class CommentSearch extends CommentModel
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'createdBy' => $this->createdBy,
             'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'content', $this->content]);
-        $query->andFilterWhere(['like', 'name', $this->authorName]);
         $query->andFilterWhere(['like', 'relatedTo', $this->relatedTo]);
 
         return $dataProvider;
