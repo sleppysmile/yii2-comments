@@ -36,12 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             [
-                'attribute' => 'createdBy',
+                'attribute' => 'authorName',
                 'value' => function ($model) {
-                if (!empty(null !== $model->createdBy)) {
-                    return $model->author->userProfile->fullName;
-                }
-
                     return $model->name;
                 },
                 'filter' => $commentModel::getAuthors(),
