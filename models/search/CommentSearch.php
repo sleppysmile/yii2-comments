@@ -63,13 +63,13 @@ class CommentSearch extends CommentModel
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'status' => $this->status,
+            'comment,id' => $this->id,
+            'comment.status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'content', $this->content]);
-        $query->andFilterWhere(['like', new Expression('CONCAT_WS(\' \', name, up.firstname, up.lastname, up.middlename)'), $this->authorName]);
-        $query->andFilterWhere(['like', 'relatedTo', $this->relatedTo]);
+        $query->andFilterWhere(['like', 'comment.content', $this->content]);
+        $query->andFilterWhere(['like', new Expression('CONCAT_WS(\' \', comment.name, up.firstname, up.lastname, up.middlename)'), $this->authorName]);
+        $query->andFilterWhere(['like', '.comment.relatedTo', $this->relatedTo]);
 
 
         return $dataProvider;
