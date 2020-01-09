@@ -69,6 +69,7 @@ class CommentSearch extends CommentModel
         $query->andFilterWhere(['like', 'author_name', $this->authorName]);
         $query->andFilterWhere(['like', 'relatedTo', $this->relatedTo]);
 
+        var_dump($dataProvider->query->createCommand()->rawSql);die;
         return $dataProvider;
     }
 }
