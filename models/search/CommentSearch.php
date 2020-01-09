@@ -17,15 +17,13 @@ class CommentSearch extends CommentModel
      */
     public $pageSize = 10;
 
-    public $authorName;
-
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'createdBy', 'status'], 'integer'],
+            [['id', 'status'], 'integer'],
             [['content', 'relatedTo'], 'safe'],
         ];
     }
