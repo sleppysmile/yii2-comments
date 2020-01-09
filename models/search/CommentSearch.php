@@ -4,6 +4,7 @@ namespace yii2mod\comments\models\search;
 
 use yii\data\ActiveDataProvider;
 use yii2mod\comments\models\CommentModel;
+use yii\db\Expression;
 
 /**
  * Class CommentSearch
@@ -17,6 +18,8 @@ class CommentSearch extends CommentModel
      */
     public $pageSize = 10;
 
+    public $authorName;
+
     /**
      * @inheritdoc
      */
@@ -25,6 +28,7 @@ class CommentSearch extends CommentModel
         return [
             [['id', 'status'], 'integer'],
             [['content', 'relatedTo'], 'safe'],
+            [['authorName'], 'string']
         ];
     }
 
@@ -37,7 +41,7 @@ class CommentSearch extends CommentModel
      */
     public function search(array $params)
     {
-        $query = CommentModel::find();
+        $query = CommentModel::find()->andWhere(new Expression('SELECT *, CONCAT(name, up.firstname, up.lastname, up.middlename) as author_name from comment left join user on user.id = comment.createdBy left join user_profile up on user.id = up.user_id; '));
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -58,11 +62,11 @@ class CommentSearch extends CommentModel
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'createdBy' => $this->createdBy,
             'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'author_name', $this->authorName]);
         $query->andFilterWhere(['like', 'relatedTo', $this->relatedTo]);
 
         return $dataProvider;
