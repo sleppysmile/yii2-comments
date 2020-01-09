@@ -41,9 +41,9 @@ class CommentSearch extends CommentModel
      */
     public function search(array $params)
     {
-        $query = CommentModel::find()->select(new Expression('comment.*, CONCAT(name, up.firstname, up.lastname, up.middlename) as author_name'))
-            ->leftJoin('user', ['user.id' => 'comment.createdBy'])
-            ->leftJoin('user_profile up', ['user.id' => 'up.user_id']);
+        $query = CommentModel::find()
+            ->leftJoin('user', ['user.id' => new Expression('comment.createdBy')])
+            ->leftJoin('user_profile up', ['user.id' => new Expression('up.user_id')]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -68,7 +68,7 @@ class CommentSearch extends CommentModel
         ]);
 
         $query->andFilterWhere(['like', 'content', $this->content]);
-        $query->andFilterWhere(['like', 'author_name', $this->authorName]);
+        $query->andFilterWhere(['like', new Expression('CONCAT_WS(\' \', name, up.firstname, up.lastname, up.middlename)'), $this->authorName]);
         $query->andFilterWhere(['like', 'relatedTo', $this->relatedTo]);
 
         var_dump($dataProvider->query->createCommand()->rawSql);die;
