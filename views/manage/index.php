@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->name;
                 },
                 'filterInputOptions' => ['prompt' => Yii::t('yii2mod.comments', 'Select Author'), 'class' => 'form-control'],
+                'header' => 'Кем создан'
             ],
             [
                 'attribute' => 'status',
