@@ -63,7 +63,7 @@ class CommentSearch extends CommentModel
         }
 
         $query->andFilterWhere([
-            'comment,id' => $this->id,
+            'comment.id' => $this->id,
             'comment.status' => $this->status,
         ]);
 
