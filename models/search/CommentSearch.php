@@ -41,7 +41,9 @@ class CommentSearch extends CommentModel
      */
     public function search(array $params)
     {
-        $query = CommentModel::find()->select(new Expression('comment.*, CONCAT(name, up.firstname, up.lastname, up.middlename) as author_name from comment left join user on user.id = comment.createdBy left join user_profile up on user.id = up.user_id'));
+        $query = CommentModel::find()->select(new Expression('comment.*, CONCAT(name, up.firstname, up.lastname, up.middlename) as author_name'))
+            ->leftJoin('user', ['user.id' => 'comment.createdBy'])
+            ->leftJoin('user_profile up', ['user.id' => 'up.user_id']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
