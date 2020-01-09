@@ -32,6 +32,13 @@ class CommentSearch extends CommentModel
         ];
     }
 
+    public function attributeLabels()
+    {
+        return array_merge(parent::attributeLabels(), [
+            'authorName' => 'Кем создан'
+        ]);
+    }
+
     /**
      * Creates data provider instance with search query applied
      *
