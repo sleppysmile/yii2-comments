@@ -1,22 +1,4 @@
 /* Comments */
-.comments {
-    margin: 40px 0 40px 0;
-}
-
-.comments .comments-list {
-    list-style: none;
-    padding: 0;
-}
-
-.comments .comment-author-avatar {
-    float: left;
-    width: 60px;
-}
-
-.comments .comment-details {
-    padding-left: 90px;
-}
-
 .comments .comment-content {
     background: -webkit-linear-gradient(right left, #f8f8f8, #f3f3f3);
     background: -moz-linear-gradient(right left, #f8f8f8, #f3f3f3);
