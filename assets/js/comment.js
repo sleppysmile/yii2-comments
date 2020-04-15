@@ -150,7 +150,7 @@
                 if (data.hasOwnProperty('errors')) {
                     $commentForm.yiiActiveForm('updateMessages', data.errors, true);
                     if (typeof data.errors['comment-recaptcha'] !== "undefined") {
-                        var contentInput = $commentForm.find('#comment-recaptcha');
+                        var contentInput = $commentForm.find(`#${$commentForm.attr("id")}-comment-recaptcha`);
                         if (contentInput) {
                             var errorContainer = contentInput.siblings('.help-block');
                             errorContainer.text(data.errors['comment-recaptcha'][0]);
