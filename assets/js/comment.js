@@ -27,6 +27,7 @@
             scrollTo: false,
             url: window.location.href,
             push: false,
+            cache: false
         },
         submitBtnText: 'Comment',
         submitBtnLoadingText: 'Загрузка...'
